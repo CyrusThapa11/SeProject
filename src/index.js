@@ -6,6 +6,7 @@ import "./index.css";
 
 import { Provider } from "./context/context";
 
+//using the react render DOM to maintain the root elements
 ReactDOM.render(
   <Provider>
     <App />

@@ -1,3 +1,4 @@
+//make available the date
 const formatDate= (date) => {
     const d = new Date(date);
     let month = `${d.getMonth() + 1}`;

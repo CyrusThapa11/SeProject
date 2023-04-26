@@ -10,6 +10,7 @@ import {
   FormControl,
 } from "@material-ui/core";
 import { ExpenseTrackerContext } from "../../../context/context";
+//importing the npm package required to handle the  universally unique identifier(UUID)
 import { v4 as uuidv4 } from "uuid";
 import useStyles from "./styles";
 import {
@@ -19,6 +20,7 @@ import {
 import formatDate from "../../../utils/formatDate";
 import CustomizedSnackbar from "../../Snackbar/Snackbar";
 
+//initializing the fields with the legal default values
 const initialState = {
   amount: "",
   category: "",
@@ -26,12 +28,14 @@ const initialState = {
   date: formatDate(new Date()),
 };
 
+//creating form and accepting the data as input from the user
 const Form = () => {
   const classes = useStyles();
   const { addTransaction } = useContext(ExpenseTrackerContext); //starts with use=>Hooks in react
   const [formData, setFormData] = useState(initialState);
   const [open, setOpen] = useState(false);
 
+  //checking for the null data that might be given as input
   const createTransaction = () => {
     if (Number.isNaN(Number(formData.amount)) || !formData.date.includes("-"))
       return;
@@ -39,15 +43,17 @@ const Form = () => {
       ...formData,
       amount: Number(formData.amount),
       id: uuidv4(),
-    }; //spread existing required things then after comma modifications
+    };
+    //spread existing required things then after comma modifications
     addTransaction(transaction);
     setOpen(true);
     setFormData(initialState);
   };
-  //console.log(formData);
 
-  //1st paramter what we want to run,2nd parameter(dependency array) when to run(which data/object changes)
-  //here it is called everytime segment changes
+  //1st parameter is what we want to run,2nd parameter is (dependency array) when to run(which
+  //data/object changes)
+
+  //it is called everytime segment changes
 
   const selectedCategories =
     formData.type === "Income" ? incomeCategories : expenseCategories;
@@ -55,6 +61,7 @@ const Form = () => {
     <Grid container spacing={2}>
       {open && <CustomizedSnackbar open={open} setOpen={setOpen} />}
 
+        <!-- handling the form data -->
       <Grid item xs={6}>
         <FormControl fullWidth>
           <InputLabel>Type</InputLabel>
@@ -81,7 +88,7 @@ const Form = () => {
                 {c.type}
               </MenuItem>
             ))}
-            {/* jsx dynamic block to add logic */}
+            {/* jsx dynamic block */}
           </Select>
         </FormControl>
       </Grid>
