@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
 import { Card, CardHeader, CardContent, Typography, Grid, Divider } from '@material-ui/core'
-
 import useStyles from './styles';
 import Form from './Form/Form';
 import List from './List/List';
-
 import { ExpenseTrackerContext } from '../../context/context'
+//importing the package required to make various card components
 import InfoCard from '../InfoCard';
 
 const Main = () => {

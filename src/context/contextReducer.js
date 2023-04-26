@@ -1,5 +1,5 @@
-//Reducer -> function that takes in the old state and an action ->returns a new state
 
+//Reducer -> function that takes in the old state and an action and returns a new state
 const contextReducer = (state, action) => {
     let transactions;
     switch (action.type) {
