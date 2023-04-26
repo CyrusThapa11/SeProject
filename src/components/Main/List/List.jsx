@@ -2,11 +2,12 @@ import React,{useContext} from 'react'
 import { List as MultiList, ListItem, ListItemAvatar, Avatar, Slide, IconButton, ListItemText, ListItemSecondaryAction } from '@material-ui/core';
 import { Delete, MoneyOff } from '@material-ui/icons';
 import useStyles from './styles'
-
 import {ExpenseTrackerContext} from '../../../context/context';
 
 const List = () => {
     const classes = useStyles();
+
+    //rebuilding the data values from the context
     const { transactions,deleteTransaction } = useContext(ExpenseTrackerContext);
   
     return (
