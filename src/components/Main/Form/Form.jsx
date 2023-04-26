@@ -61,7 +61,7 @@ const Form = () => {
     <Grid container spacing={2}>
       {open && <CustomizedSnackbar open={open} setOpen={setOpen} />}
 
-        <!-- handling the form data -->
+      {/* <!-- handling the form data --> */}
       <Grid item xs={6}>
         <FormControl fullWidth>
           <InputLabel>Type</InputLabel>
